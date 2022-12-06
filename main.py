@@ -49,10 +49,11 @@ class Currency:
         if last_currency:
             percent = utils.get_percentage(float(value_obj.value), float(last_currency.value))
             value_obj.percent = percent
-        if currency_obj.code in config.CURRENCIES and (not last_currency or value_obj.percent != 0):
+        if not last_currency or value_obj.percent != 0:
             self.value_crud.insert(value_obj)
-            self.msg.append(utils.make_project_msg(currency_obj, value_obj, last_currency.value))
-            self.check = True
+            if currency_obj.code in config.CURRENCIES and value_obj.percent != 0:
+                self.msg.append(utils.make_project_msg(currency_obj, value_obj, last_currency.value))
+                self.check = True
 
 
 if __name__ == '__main__':
