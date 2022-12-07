@@ -10,5 +10,5 @@ class CurrencySchema(BaseModel):
 
 class ValueSchema(BaseModel):
     value: str
-    currency_id: Optional[int]
+    currency_id: Optional[float]
     percent: Optional[int] = 0

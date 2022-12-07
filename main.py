@@ -51,7 +51,7 @@ class Currency:
             value_obj.percent = percent
         if not last_currency or value_obj.percent != 0:
             self.value_crud.insert(value_obj)
-            if currency_obj.code in config.CURRENCIES and value_obj.percent != 0:
+            if currency_obj.code in config.CURRENCIES and value_obj.percent != 0.0:
                 self.msg.append(utils.make_project_msg(currency_obj, value_obj, last_currency.value))
                 self.check = True
 

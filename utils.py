@@ -40,10 +40,10 @@ def make_msg(msg: list) -> str:
     return message
 
 
-def get_percentage(current: float, previous: float) -> int:
+def get_percentage(current: float, previous: float) -> float:
     if current < previous:
         current, previous = previous, current
-    return round(int(((current - previous) / current) * 100))
+    return ((current - previous) / current) * 100
     # a < b = ((b - a) / a) * 100
     # a > b = ((a - b) / a) * 100
 

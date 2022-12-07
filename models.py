@@ -20,7 +20,7 @@ class ValueModel(Base):
     id = Column(Integer, primary_key=True, index=True)
     created = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     value = Column(String, nullable=False)
-    percent = Column(Integer)
+    percent = Column(Float)
     currency_id = Column(Integer, ForeignKey(CurrencyModel.id))
 
     currency = relationship('CurrencyModel', back_populates='values')
